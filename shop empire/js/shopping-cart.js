@@ -1,0 +1,40 @@
+﻿$(function(){$('.jia').on('click',function(){let price1=$(this).parent().prev().text();let a=$(this).prev().text();let b=parseInt(a)+1;price1=parseInt(price1);$(this).prev().html(b);let c=price1*b;$(this).parent().next().html(c+'.00');$('input').prop('checked',false)
+$('#total').html('0')
+$('#totalPrice').html('00.00')})
+$('.jian').on('click',function(){let price1=$(this).parent().prev().text();let a=$(this).next().text();let b=parseInt(a)-1;price1=parseInt(price1);$(this).next().html(b);let c=price1*b;$(this).parent().next().html(c+'.00')
+if(b<0){$(this).parents('.card_box').remove()}
+if($('.card_box>span').length===0){$('.card').html("<h1>穷鬼，呵呵</h1>")
+$('.card h1').animate({color:'#ff0000',fontSize:'50px',},1000)}})
+$('[name="select_all"]').on('click',function(){let check=$(this).prop('checked')
+$('input').prop('checked',check)
+if($('[name="select_all"]').prop('checked')===true){var a=parseInt($('[name="book1"]').parent().next().children().eq(2).text())
+var b=parseInt($('.subtotal').eq(1).text());var i=parseInt($('.number').eq(0).text())
+var p=parseInt($('.number').eq(1).text())
+$('#totalPrice').html(a+b)
+$('#total').html(i+p)}else{$('#total').html(0)
+$('#totalPrice').html('00.00')}})
+$('[name="book1"]').on('click',function(){var check1=$('[name="book1"]').prop('checked')
+var check2=$('[name="book2"]').prop('checked')
+if(check2===true){var b=parseInt($('.subtotal').eq(1).text())
+var p=parseInt($('.number').eq(1).text())}else{b=0;p=0;}
+if(check1===true){var a=parseInt($('[name="book1"]').parent().next().children().eq(2).text())
+var i=parseInt($('.number').eq(0).text());$('#totalPrice').html(a+b)
+$('#total').html(p+i)}else{$('#totalPrice').html(b)}
+if(check1===true&&check2===true){$('#totalPrice').html(a+b)}
+if($('[name="book1"]').prop('checked')===true&&$('[name="book2"]').prop('checked')===true){$('[name="select_all"]').prop('checked',true)}else{$('[name="select_all"]').prop('checked',false)}})
+$('[name="book2"]').on('click',function(){var check1=$('[name="book1"]').prop('checked')
+var check2=$('[name="book2"]').prop('checked')
+if(check1===true){var a=parseInt($('.subtotal').eq(0).text())
+var i=parseInt($('.number').eq(0).text());}else{a=0;i=0}
+if(check2===true){var b=parseInt($('[name="book2"]').parent().next().children().eq(2).text())
+var p=parseInt($('.number').eq(1).text())
+$('#totalPrice').html(a+b)
+$('#total').html(i+p)}else{$('#totalPrice').html(a)}
+if(check1===true&&check2===true){$('#totalPrice').html(a+b)}
+if($('[name="book1"]').prop('checked')===true&&$('[name="book2"]').prop('checked')===true){$('[name="select_all"]').prop('checked',true)}else{$('[name="select_all"]').prop('checked',false)}})
+$('#pay').on('click',function(){var a=$('#total').text()
+if(parseInt(a)===0){alert('请选择你喜欢的商品')}else{var password=prompt('请输入6位支付密码：')
+if(password=='123456'){var hei=$('body').height()+'px';var wid=$(window).width()+'px';$('#mask1').css({width:wid,height:hei,position:'absolute',top:'0',left:'0',background:'#cccccc8c',zIndex:'30',display:'block'})}else{var hei=$('body').height()+'px';var wid=$(window).width()+'px';$('#mask2').css({width:wid,height:hei,position:'absolute',top:'0',left:'0',background:'#cccccc8c',zIndex:'30',display:'block'})}}})
+$('#cha').on('click',function(){$('#cha').parents('.mask').css({display:'none'})})
+$('.confirm').on('click',function(){$(this).parents('.mask').css({display:'none'})})
+$('.delete').on('click',function(){$(this).parents('.mask').remove()})})
