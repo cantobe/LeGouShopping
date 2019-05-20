@@ -2,12 +2,12 @@
 $(window).scroll(function(){var slThis=$(this).height();var slTop=$(this).scrollTop();var showHt=slTop+slThis/2;if(showHt>1055){$('#top_search').stop()
 $('#top_search').animate({top:'0px'},300);}else{$('#top_search').stop()
 $('#top_search').animate({top:'-50px'},200);}
-if(showHt>1000&&showHt<4100){$('.floor').show();}else{$('.floor').hide();}
-if(showHt>=1080&&showHt<=1550){$('.floor span').removeClass('floor_active')
-$('#books').addClass('floor_active')}else if(showHt>=1550&&showHt<=2100){$('.floor span').removeClass('floor_active')
-$('#clothing').addClass('floor_active')}else if(showHt>=2100&&showHt<=2650){$('.floor span').removeClass('floor_active')
-$('#movement').addClass('floor_active')}else if(showHt>=2650&&showHt<=3250){$('.floor span').removeClass('floor_active')
-$('#kids').addClass('floor_active')}else if(showHt>=3250&&showHt<=4000){$('.floor span').removeClass('floor_active')
+if(showHt>1000&&showHt<4300){$('.floor').show();}else{$('.floor').hide();}
+if(showHt>=1160&&showHt<=1750){$('.floor span').removeClass('floor_active')
+$('#books').addClass('floor_active')}else if(showHt>=1751&&showHt<=2320){$('.floor span').removeClass('floor_active')
+$('#clothing').addClass('floor_active')}else if(showHt>=2328&&showHt<=3000){$('.floor span').removeClass('floor_active')
+$('#movement').addClass('floor_active')}else if(showHt>=3005&&showHt<=3680){$('.floor span').removeClass('floor_active')
+$('#kids').addClass('floor_active')}else if(showHt>=3682&&showHt<=4300){$('.floor span').removeClass('floor_active')
 $('#household').addClass('floor_active')}else{$('.floor span').removeClass('floor_active')}
 var key=0;bd_height.map(function(value,index){if(showHt>=value){key=index;}})
 if(old_key==key){return false;}else{old_key=key;change_step(key);}})
